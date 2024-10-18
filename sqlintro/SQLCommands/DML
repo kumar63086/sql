@@ -1,0 +1,14 @@
+Data Manipulation Language (DML)
+DML commands are used to manipulate data in existing tables.
+
+INSERT: Used to add new records to a table.
+
+
+INSERT INTO Employees (FirstName, LastName, HireDate) VALUES ('John', 'Doe', '2024-01-15');
+UPDATE: Used to modify existing records in a table.
+
+UPDATE Employees SET Salary = 60000 WHERE EmployeeID = 1;
+DELETE: Used to remove records from a table.
+
+
+DELETE FROM Employees WHERE EmployeeID = 1;

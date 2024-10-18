@@ -1,0 +1,15 @@
+WHERE: Used to filter records based on a condition.
+
+SELECT * FROM Employees WHERE Salary > 50000;
+ORDER BY: Used to sort the result set.
+
+
+SELECT * FROM Employees ORDER BY HireDate DESC;
+GROUP BY: Used to group rows sharing a property so that aggregate functions can be applied to each group.
+
+
+SELECT COUNT(*), Department FROM Employees GROUP BY Department;
+HAVING: Used to filter records that work on summarized group data.
+
+
+SELECT Department, AVG(Salary) FROM Employees GROUP BY Department HAVING AVG(Salary) > 60

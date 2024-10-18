@@ -1,0 +1,23 @@
+ Data Definition Language (DDL)
+ DDL commands are used to define the database structure.
+
+CREATE: Used to create a new table, database, index, or view.
+
+sql
+Copy code
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    HireDate DATE
+);
+
+
+ALTER: Used to modify an existing table structure (add, modify, or drop columns).
+ALTER TABLE Employees ADD Salary DECIMAL(10, 2);
+
+DROP: Used to delete a table, database, index, or view.
+DROP TABLE Employees;
+
+TRUNCATE: Used to remove all records from a table without removing the table structure.
+TRUNCATE TABLE Employees;

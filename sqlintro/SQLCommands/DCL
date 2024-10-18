@@ -1,0 +1,11 @@
+Data Control Language (DCL)
+DCL commands are used to control access to the data in the database.
+
+GRANT: Used to give users access privileges to the database or its objects.
+
+
+GRANT SELECT ON Employees TO user_name;
+REVOKE: Used to remove user access privileges.
+
+
+REVOKE SELECT ON Employees FROM user_name;

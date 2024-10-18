@@ -1,0 +1,14 @@
+TCL commands are used to manage transactions in a database.
+
+COMMIT: Saves all changes made in the current transaction.
+
+
+COMMIT;
+ROLLBACK: Undoes changes made in the current transaction.
+
+
+ROLLBACK;
+SAVEPOINT: Creates a point in a transaction to which you can later roll back.
+
+
+SAVEPOINT Savepoint1;

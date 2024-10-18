@@ -1,0 +1,7 @@
+ Data Query Language (DQL)
+DQL commands are used to retrieve data from the database.
+
+SELECT: Used to query and retrieve data from one or more tables.
+
+SELECT * FROM Employees;  -- Select all columns
+SELECT FirstName, LastName FROM Employees WHERE HireDate > '2024-01-01';

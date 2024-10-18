@@ -1,0 +1,174 @@
+
+SQL joins are used to combine rows from two or more tables based on a related column between them. Understanding joins is essential for querying relational databases effectively. 
+Here’s an in-depth look at the different types of SQL joins, along with examples to illustrate how they work.
+
+Types of SQL Joins
+
+INNER JOIN
+
+Returns only the rows that have matching values in both tables.
+If there are no matches, the result is empty.
+Syntax:
+
+
+SELECT columns
+FROM table1
+INNER JOIN table2
+ON table1.common_column = table2.common_column;
+Example:
+
+sql
+Copy code
+SELECT Employees.FirstName, Departments.DepartmentName
+FROM Employees
+INNER JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
+LEFT JOIN (or LEFT OUTER JOIN)
+
+Returns all the rows from the left table and the matched rows from the right table.
+If there is no match, NULL values are returned for columns from the right table.
+Syntax:
+
+sql
+Copy code
+SELECT columns
+FROM table1
+LEFT JOIN table2
+ON table1.common_column = table2.common_column;
+Example:
+
+
+SELECT Employees.FirstName, Departments.DepartmentName
+FROM Employees
+LEFT JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
+RIGHT JOIN (or RIGHT OUTER JOIN)
+
+Returns all the rows from the right table and the matched rows from the left table.
+If there is no match, NULL values are returned for columns from the left table.
+Syntax:
+
+SELECT columns
+FROM table1
+RIGHT JOIN table2
+ON table1.common_column = table2.common_column;
+Example:
+
+
+SELECT Employees.FirstName, Departments.DepartmentName
+FROM Employees
+RIGHT JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
+FULL OUTER JOIN
+
+Returns all the rows when there is a match in either left or right table records.
+If there is no match, NULL values are returned for columns from the non-matching table.
+Syntax:
+
+
+SELECT columns
+FROM table1
+FULL OUTER JOIN table2
+ON table1.common_column = table2.common_column;
+Example:
+
+
+SELECT Employees.FirstName, Departments.DepartmentName
+FROM Employees
+FULL OUTER JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
+CROSS JOIN
+
+Returns the Cartesian product of two tables, meaning every row from the first table is combined with every row from the second table.
+It does not require a condition to join.
+Syntax:
+
+sql
+Copy code
+SELECT columns
+FROM table1
+CROSS JOIN table2;
+Example:
+
+sql
+Copy code
+SELECT Employees.FirstName, Departments.DepartmentName
+FROM Employees
+CROSS JOIN Departments;
+SELF JOIN
+
+A self join is a regular join but the table is joined with itself.
+It is often used to compare rows within the same table.
+Syntax:
+
+sql
+Copy code
+SELECT a.columns, b.columns
+FROM table a, table b
+WHERE condition;
+Example:
+
+sql
+Copy code
+SELECT a.FirstName AS EmployeeName, b.FirstName AS ManagerName
+FROM Employees a, Employees b
+WHERE a.ManagerID = b.EmployeeID;
+Join Conditions and Use Cases
+Join Conditions: The condition used in the ON clause specifies how the tables are related. It usually involves primary and foreign keys.
+Use Cases:
+INNER JOIN: Used when you want to retrieve records with matches in both tables.
+LEFT JOIN: Useful for getting all records from the primary table, regardless of matches in the secondary table.
+RIGHT JOIN: When you need all records from the secondary table, with matching records from the primary.
+FULL OUTER JOIN: Ideal for scenarios where you want complete data from both tables, regardless of matches.
+CROSS JOIN: Generally used in scenarios where you need every combination of records.
+SELF JOIN: Useful for hierarchical data, such as employees and their managers.
+Visual Representation
+Here's a simple visual representation of the different types of joins:
+
+INNER JOIN:
+lua
+Copy code
+  +-----------+-----------+
+  | Employee  | Department|
+  +-----------+-----------+
+  | John      | Sales     |
+  | Jane      | HR        |
+  +-----------+-----------+
+LEFT JOIN:
+sql
+Copy code
+  +-----------+-----------+
+  | Employee  | Department|
+  +-----------+-----------+
+  | John      | Sales     |
+  | Jane      | HR        |
+  | Alex      | NULL      |
+  +-----------+-----------+
+RIGHT JOIN:
+sql
+Copy code
+  +-----------+-----------+
+  | Employee  | Department|
+  +-----------+-----------+
+  | John      | Sales     |
+  | Jane      | HR        |
+  | NULL      | Marketing  |
+  +-----------+-----------+
+FULL OUTER JOIN:
+sql
+Copy code
+  +-----------+-----------+
+  | Employee  | Department|
+  +-----------+-----------+
+  | John      | Sales     |
+  | Jane      | HR        |
+  | Alex      | NULL      |
+  | NULL      | Marketing  |
+  +-----------+-----------+
+CROSS JOIN:
+lua
+Copy code
+  +-----------+-----------+
+  | Employee  | Department|
+  +-----------+-----------+
+  | John      | Sales     |
+  | John      | HR        |
+  | Jane      | Sales     |
+  | Jane      | HR        |
+  +-----------+-----------+
